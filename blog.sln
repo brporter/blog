@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "posts", "posts\posts.csproj", "{0E4DA18E-B80A-4B1D-86EB-140CA467CB00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "posts", "src\posts\posts.csproj", "{0E4DA18E-B80A-4B1D-86EB-140CA467CB00}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "posts.tests", "tests\posts.tests\posts.tests.csproj", "{A9B9EB88-6A11-41A0-BBAB-AEC54A447DFE}"
 EndProject

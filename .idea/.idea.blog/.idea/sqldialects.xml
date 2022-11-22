@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/posts/DataDefinition/Procedures/GetPostsByHandle.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/src/posts/DataDefinition/Procedures/GetPostsByUserId.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/src/posts/DataDefinition/Tables/01_users.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/src/posts/DataDefinition/Tables/03_posts.sql" dialect="AZURE" />
+    <file url="file://$PROJECT_DIR$/src/posts/DataDefinition/clean.sql" dialect="AZURE" />
+  </component>
+</project>
