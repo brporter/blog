@@ -1,4 +1,5 @@
-﻿CREATE TABLE [dbo].[posts] (
+﻿IF OBJECT_ID('dbo.posts') IS NULL BEGIN
+CREATE TABLE [dbo].[posts] (
     [postid]   INT             IDENTITY (1, 1) NOT NULL,
     [title]    NVARCHAR (1024) NOT NULL,
     [body]     NVARCHAR (MAX)  NOT NULL,
@@ -11,7 +12,6 @@
 );
 
 
-GO
 CREATE NONCLUSTERED INDEX [IX_posts_userid_created]
     ON [dbo].[posts]([userid] ASC, [created] DESC);
-
+END
