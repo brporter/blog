@@ -37,8 +37,6 @@ public class DatabaseInitializationService
         using var connection = _broker.GetConnection();
         connection.Open();
 
-        connection.ChangeDatabase("master");
-
         var assembly = typeof(DatabaseInitializationService).Assembly;
         var resources = assembly.GetManifestResourceNames();
 

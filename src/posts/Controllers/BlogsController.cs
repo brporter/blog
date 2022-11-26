@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using posts.Models;
 using posts.Services;
@@ -8,6 +9,7 @@ namespace posts.Controllers;
 [Route("[controller]")]
 [ApiController]
 public class BlogsController
+    : ControllerBase
 {
     readonly ILogger<BlogsController> _logger;
     readonly IBlogRepository _repository;
@@ -20,7 +22,13 @@ public class BlogsController
 
     [HttpGet]
     [Route("{slug}")]
-    public async Task<Blog> GetAsync(string slug)
-        => await _repository.GetBlogAsync(slug);
+    public async Task<IActionResult> GetAsync(string slug)
+    {
+        var rv = await _repository.GetBlogAsync(slug);
 
+        if (rv.HasValue)
+            return Ok(rv.Value);
+
+        return NotFound();
+    }
 }

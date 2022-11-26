@@ -28,7 +28,7 @@ public class GetBlogCommand
             commandType: CommandType.StoredProcedure
         );
 
-        var blog = await connection.QuerySingleAsync<Blog>(command);
+        var blog = await connection.QueryFirstOrDefaultAsync<Blog>(command);
 
         return blog;
     }
