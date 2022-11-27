@@ -2,6 +2,8 @@ namespace posts.Services;
 
 public class RepositoryValue<T>
 {
+    public static readonly RepositoryValue<T> Empty = new(default(T));
+
     private readonly T? _value;
 
     private RepositoryValue(T? value)
@@ -14,5 +16,5 @@ public class RepositoryValue<T>
     public bool HasValue => _value != null;
 
     public static implicit operator T(RepositoryValue<T> r) => r.Value;
-    public static implicit operator RepositoryValue<T>(T v) => new(v);
+    public static implicit operator RepositoryValue<T>(T? v) => new(v);
 }

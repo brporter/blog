@@ -30,7 +30,8 @@ public static class Program
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddSingleton(new CommandLineParameters(initDb));
-            builder.Services.AddServices();
+            builder.Services.AddDataServices();
+            builder.Services.AddRedisCacheServices();
             builder.Services.AddHostedServices();
             builder.Services.AddCommands();
 
