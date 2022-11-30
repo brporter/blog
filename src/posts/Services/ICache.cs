@@ -2,7 +2,7 @@ namespace posts.Services;
 
 public interface ICache
 {
-    Task<RepositoryValue<T>> GetValueAsync<T>(string key);
+    Task<Optional<T>> GetValueAsync<T>(string key);
 
     Task SetValueAsync<T>(string key, T value);
 

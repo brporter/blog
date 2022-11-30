@@ -13,25 +13,18 @@ public class BlogsController
 {
     readonly ILogger<BlogsController> _logger;
     readonly IBlogRepository _repository;
-    private readonly ICache _cache;
 
-    public BlogsController(ILogger<BlogsController> logger, IBlogRepository repository, ICache cache)
+    public BlogsController(ILogger<BlogsController> logger, IBlogRepository repository)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-        _cache = cache ?? throw new ArgumentNullException(nameof(cache));
     }
 
     [HttpGet]
     [Route("{slug}")]
     public async Task<IActionResult> GetAsync(string slug)
     {
-        var rv = await _cache.GetValueAsync<Blog>($"blog:{slug}");
-
-        if (!rv.HasValue)
-        {
-            rv = await _repository.GetBlogAsync(slug);
-        }
+        var rv = await _repository.GetBlogAsync(slug);
 
         if (rv.HasValue)
             return Ok(rv.Value);
@@ -56,8 +49,6 @@ public class BlogsController
             UserId = 1,
             Enabled = true
         };
-        
-        await _cache.QueuePublishAsync("blogcreation", sanitized);
 
         return Accepted();
     }

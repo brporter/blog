@@ -15,7 +15,7 @@ public class Cache
         _connectionMultiplexer = connectionMultiplexer ?? throw new ArgumentNullException(nameof(connectionMultiplexer));
     }
 
-    public async Task<RepositoryValue<T>> GetValueAsync<T>(string key)
+    public async Task<Optional<T>> GetValueAsync<T>(string key)
     {
         var db = _connectionMultiplexer.GetDatabase();
 
@@ -31,7 +31,7 @@ public class Cache
             }
         }
 
-        return RepositoryValue<T>.Empty;
+        return Optional<T>.Empty;
     }
 
     public async Task SetValueAsync<T>(string key, T value)
